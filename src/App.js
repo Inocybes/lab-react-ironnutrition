@@ -12,7 +12,7 @@ function App() {
   //States
   const [allFoods, setAllFoods] = useState(foods);
   const [foodToRender, setFoodToRender] = useState(foods);
-  const [todaysFood, setTodaysFood] = useState(foods);
+  const [todaysFood, setTodaysFood] = useState([]);
 
   const addFood = (food) => {
     setAllFoods([...allFoods, food]);

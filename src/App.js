@@ -13,6 +13,7 @@ function App() {
   const [allFoods, setAllFoods] = useState(foods);
   const [foodToRender, setFoodToRender] = useState(foods);
   const [todaysFood, setTodaysFood] = useState([]);
+  const [showAddFood, setShowAddFood] = useState(false);
 
   const addFood = (food) => {
     setAllFoods([...allFoods, food]);
@@ -32,24 +33,32 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Iron Nutrition</h1>
+    <div className="food-container">
+      <div>
+        <h1>Iron Nutrition</h1>
 
-      <AddForm addFood={addFood} />
+        <button onClick={() => setShowAddFood(!showAddFood)}>
+          {showAddFood ? 'Hide' : 'Add Food'}
+          
+        </button>
+        
+        {showAddFood && <AddForm addFood={addFood} />}
 
-      <Search searchFood={searchFood} />
+        <Search searchFood={searchFood} />
 
-      {foodToRender.map((eachFood, index) => {
-        return (
-          <FoodBox
-            eachFood={eachFood}
-            key={index + eachFood.name}
-            addToTodaysFood={addToTodaysFood}
-          />
-        );
-      })}
-
-      <TodaysFoods todaysFood={todaysFood} />
+        {foodToRender.map((eachFood, index) => {
+          return (
+            <FoodBox
+              eachFood={eachFood}
+              key={index + eachFood.name}
+              addToTodaysFood={addToTodaysFood}
+            />
+          );
+        })}
+      </div>
+      <div>
+        <TodaysFoods todaysFood={todaysFood} />
+      </div>
     </div>
   );
 }

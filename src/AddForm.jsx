@@ -48,13 +48,13 @@ function AddForm(props) {
           onChange={handleCaloriesChange}
         />
         
-        {/* <label htmlFor="image"></label>
+        <label htmlFor="image">Quantity</label>
         <input
           type="text"
           name="image"
-          value={image}
-          onChange={handleCaloriesChange}
-        /> */}
+          placeholder="Add Image"
+          onChange={handleImageChange}
+        />
         
         <label htmlFor="quantity">Quantity</label>
         <input
